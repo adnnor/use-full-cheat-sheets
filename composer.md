@@ -21,3 +21,6 @@ Ignore all platform requirements
 
 Ignore specific platform requirement, in following example I am ignoring PHP platform requirement, so it will not check which PHP version you may have  
 `composer install --ignore-platform-req=php`
+
+Ignore multiple platform requirements  
+`composer install --ignore-platform-req=php --ignore-platform-req=ext-zip`
