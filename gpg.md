@@ -66,7 +66,7 @@ Now execute `gpg --armor --export 34CAC1BA735E45G > key.pub`, it will print the 
 
 Head to GitHub > [Top Right Icon] > Settings > SSH and GPG Keys > New GPG Key > [Paste pub.key Contents] > Add GPG Key.
 
-Thats all, you have successfully added public GPG key to your GitHub account, now tell the [Git][2] client about this.
+That's all, you have successfully added public GPG key to your GitHub account, now tell the [Git][2] client about this.
 
 ### List keys
 [top](#contents)
@@ -114,4 +114,4 @@ gpg --import /path/to/public
 ```
 
 [1]: https://docs.github.com/en/free-pro-team@latest/github/authenticating-to-github/managing-commit-signature-verification
-[2]: ../blob/master/LICENSE
+[2]: ../blob/master/git.md
