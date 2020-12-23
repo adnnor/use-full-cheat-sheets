@@ -114,4 +114,4 @@ gpg --import /path/to/public
 ```
 
 [1]: https://docs.github.com/en/free-pro-team@latest/github/authenticating-to-github/managing-commit-signature-verification
-[2]: ../blob/master/git.md
+[2]: ./git.md
