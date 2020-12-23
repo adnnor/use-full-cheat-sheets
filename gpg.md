@@ -1,4 +1,10 @@
 ## GPG
+> GnuPG is a complete and free implementation of the OpenPGP standard as defined by RFC4880 (also known as PGP). GnuPG allows you to encrypt and sign your data and communications; it features a versatile key management system, along with access modules for all kinds of public key directories. GnuPG, also known as GPG, is a command line tool with features for easy integration with other applications. A wealth of frontend applications and libraries are available. GnuPG also provides support for S/MIME and Secure Shell (ssh).  
+> Since its introduction in 1997, GnuPG is Free Software (meaning that it respects your freedom). It can be freely used, modified and distributed under the terms of the GNU General Public License.    
+> The current version of GnuPG is 2.2.26. See the download page for other maintained versions.  
+> Gpg4win is a Windows version of GnuPG featuring a context menu tool, a crypto manager, and an Outlook plugin to send and receive standard PGP/MIME mails. The current version of Gpg4win is 3.1.14. [Source][3]
+
+So, GPG, or GNU Privacy Guard, is a public key cryptography implementation. This allows for the secure transmission of information between parties and can be used to verify that the origin of a message is genuine.
 
 ### Contents 
 - [Installation](#installation)
@@ -31,6 +37,8 @@ It will take sometime and finally you will get your key pair generated and store
 ### Github & GPG
 > You can sign your work locally using GPG or S/MIME. GitHub will verify these signatures so other people will know that your commits come from a trusted source. GitHub will automatically sign commits you make using the GitHub web interface.
 > [Source][1]
+
+[top](#contents)
 
 GitHub supports following GPG key algorithms, an unsupported algorithm may encounter an error.
 
@@ -69,7 +77,6 @@ Head to GitHub > [Top Right Icon] > Settings > SSH and GPG Keys > New GPG Key > 
 That's all, you have successfully added public GPG key to your GitHub account, now tell the [Git][2] client about this.
 
 ### List keys
-[top](#contents)
 
 ```bash
 # list public keys
@@ -115,3 +122,4 @@ gpg --import /path/to/public
 
 [1]: https://docs.github.com/en/free-pro-team@latest/github/authenticating-to-github/managing-commit-signature-verification
 [2]: ./git.md
+[3]: https://gnupg.org/
