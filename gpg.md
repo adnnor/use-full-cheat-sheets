@@ -1,10 +1,15 @@
 ## GPG
 
+- [Installation](#installation)
+- [Generate Key Pair](#generate-key-pair)
+- [Import and export](#import-and-export)
+
+### Installation
 ```bash
 sudo apt install gnupg
 ```
 
-### Generating GPG Key Pair
+### Generate Key Pair
 The process will generate two kinds of keys, the Private Key and the Public Key
 
 The Private key will allow you to encrypt your files, signed by this.
