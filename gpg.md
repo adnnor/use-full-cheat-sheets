@@ -3,6 +3,8 @@
 ### Contents 
 - [Installation](#installation)
 - [Generate Key Pair](#generate-key-pair)
+- [Github & GPG](#github--gpg)
+- [List keys](#list-keys)
 - [Import and export](#import-and-export)
 
 ### Installation
@@ -26,6 +28,59 @@ If you have been encountered with the error something like; `gpg: Sorry, no term
 
 It will take sometime and finally you will get your key pair generated and stored under `[HOME_DIR]/.gnupg`
 
+### Github & GPG
+> You can sign your work locally using GPG or S/MIME. GitHub will verify these signatures so other people will know that your commits come from a trusted source. GitHub will automatically sign commits you make using the GitHub web interface.
+> [Source][1]
+
+GitHub supports following GPG key algorithms, an unsupported algorithm may encounter an error.
+
+* RSA
+* ElGamal
+* DSA
+* ECDH
+* ECDSA
+* EdDSA
+
+Create the GPG key with supported algorithm for GitHub
+```bash
+# If you are using GPG version > 2.1.17
+gpg --full-generate-key
+# For < 2.1.17
+gpg --default-new-key-algo [Algo_With_Length] --gen-key
+# example
+gpg --gen-key --default-new-key-algo rsa2048 
+```
+
+Execute `gpg --list-secret-keys --keyid-format LONG` to list both public and private keys.
+```bash
+# example output
+
+.../xxx.kbx
+---------------------------
+sec   rsa2047/34CAC1BA735E45G 
+      03C35B85F64BE3B4504CA5235E1EBB012E497343F
+uid                 [XXX]
+ssb   rsa2047/7EB308882C33FA11
+```
+Now execute `gpg --armor --export 34CAC1BA735E45G > key.pub`, it will print the GPG key ID in ASCII armor format to key.pub, open the file and copy all the contents (CTRL+A).   
+
+Head to GitHub > [Top Right Icon] > Settings > SSH and GPG Keys > New GPG Key > [Paste pub.key Contents] > Add GPG Key.
+
+Thats all, you have successfully added public GPG key to your GitHub account, now tell the [Git][2] client about this.
+
+### List keys
+[top](#contents)
+
+```bash
+# list public keys
+gpg --list-keys
+
+# list private keys
+gpg --list-secret-keys
+
+# list both public and private keys
+gpg --list-secret-keys --keyid-format LONG
+```
 
 ### Import and export
 [top](#contents)
@@ -57,3 +112,6 @@ gpg --import [File_Path]
 # example
 gpg --import /path/to/public
 ```
+
+[1]: https://docs.github.com/en/free-pro-team@latest/github/authenticating-to-github/managing-commit-signature-verification
+[2]: ../blob/master/LICENSE
