@@ -11,6 +11,7 @@ So, GPG, or GNU Privacy Guard, is a public key cryptography implementation. This
 - [Generate Key Pair](#generate-key-pair)
 - [Github & GPG](#github--gpg)
 - [List keys](#list-keys)
+- [Delete keys](#delete-keys)
 - [Import and export](#import-and-export)
 
 ### Installation
@@ -53,13 +54,16 @@ Create the GPG key with supported algorithm for GitHub
 ```bash
 # If you are using GPG version > 2.1.17
 gpg --full-generate-key
+
 # For < 2.1.17
 gpg --default-new-key-algo [Algo_With_Length] --gen-key
+
 # example
 gpg --gen-key --default-new-key-algo rsa2048 
 ```
 
 Execute `gpg --list-secret-keys --keyid-format LONG` to list both public and private keys.
+
 ```bash
 # example output
 
@@ -70,6 +74,7 @@ sec   rsa2047/34CAC1BA735E45G
 uid                 [XXX]
 ssb   rsa2047/7EB308882C33FA11
 ```
+
 Now execute `gpg --armor --export 34CAC1BA735E45G > key.pub`, it will print the GPG key ID in ASCII armor format to key.pub, open the file and copy all the contents (CTRL+A).   
 
 Head to GitHub > [Top Right Icon] > Settings > SSH and GPG Keys > New GPG Key > [Paste pub.key Contents] > Add GPG Key.
@@ -77,7 +82,6 @@ Head to GitHub > [Top Right Icon] > Settings > SSH and GPG Keys > New GPG Key > 
 That's all, you have successfully added public GPG key to your GitHub account, now tell the [Git][2] client about this.
 
 ### List keys
-
 ```bash
 # list public keys
 gpg --list-keys
@@ -94,30 +98,52 @@ gpg --list-secret-keys --keyid-format LONG
 
 Once you have created the key pair, you can export in case you have changed your computer and doesn't want to create the key again.
 
-**Export Public key**
-
+**Export**
 ```bash
+# export public key
 gpg --export --armor [Email_Address]
+
 # example
 gpg --export --armor johndoe@example.com
+
 # the key is exported to STDOUT so you can use following command to save the output to the file
 gpg --export --armor johndoe@example.com > public
-```
 
-**Export Private key**
-```bash
-gpg --export-secret-keys --armor [Email_Address]
-# example
-gpg --export-secret-keys --armor johndoe@example.com
-# or
+# export private key
 gpg --export-secret-keys --armor johndoe@example.com > private.gpg
 ```
 
-**Import key**
+**Import**
 ```bash
+# import public key
 gpg --import [File_Path]
+
 # example
 gpg --import /path/to/public
+
+# import private key
+gpg --allow-secret-key-import --import private.gpg
+```
+
+### Delete keys
+[top](#contents)
+```bash
+# delete public key
+gpg --delete-key [Email_Address]
+
+# example
+gpg --delete-key "johndoe@example.com"
+```
+
+If the public key is associated with the private key then you have to delete the private key first, otherwise you may encounter an error.
+
+```bash
+gpg: there is a secret key for public key "johndoe@example.com"!
+gpg: use option "--delete-secret-keys" to delete it first.
+```
+```bash
+# delete private key
+gpg --delete-secret-key "johndoe@example.com"
 ```
 
 [1]: https://docs.github.com/en/free-pro-team@latest/github/authenticating-to-github/managing-commit-signature-verification
