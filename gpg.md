@@ -13,6 +13,8 @@ So, GPG, or GNU Privacy Guard, is a public key cryptography implementation. This
 - [List keys](#list-keys)
 - [Delete keys](#delete-keys)
 - [Import and export](#import-and-export)
+- [Revocation Certificate](#revocation-certificate)
+- [Publish key](#publish-key)
 
 ### Installation
 
@@ -145,6 +147,78 @@ gpg: use option "--delete-secret-keys" to delete it first.
 # delete private key
 gpg --delete-secret-key "johndoe@example.com"
 ```
+
+## Revocation Certificate
+[top](#contents)
+
+What if 
+* You have lost your private key?
+* The key have been superseded?
+* Your private key is compromised, like security breach?
+* The key is no longer in use?
+* You have forgotten the passphrase?
+
+Now you want to revoke/disable that key, or you may say you want to invalidate your key pair, here comes the Revocation Certificate.
+It is a revoked copy of your public key which you can publish to inform users that your public key should no longer be used.
+
+Keep in mind that;
+* You should generate this certificate when you make the keypair, not when you need it, because if you have lost your private there is no way you can create this certificate and won't be able to inform users.
+* The revocation certificate must be generated ahead of time and kept in a secure location, best to keep it in separate location.
+* Generating revocation certificate doesn't mean you are revoking the key you created.
+* As you will be asked for the reason of revocation, so it is good to create a revocation certificate for each of likely scenarios and name them different.
+* Before creating the revocation certificate, you will need to enter your GPG key’s passphrase to confirm your identity.
+* The revocation certificate must be kept secure so that other users cannot revoke your key, best to print it.
+
+```bash
+gpg --output /path/johndoe_compromised.crt --gen-revoke johndoe@example.com
+# or
+gpg --output /path/johndoe_compromised.crt --generate-revocation johndoe@example.com
+```
+
+The revocation certificate will be written to the file specified by the --output flag.
+
+To prevent unauthorized access immediately restrict the permissions on the generated certificate.
+```bash
+chmod 600 /path/johndoe_compromised.crt
+```
+
+## Publish key
+[top](#contents)
+
+It is time to publish your public key to the key server, it doesn't matter which key server you use, they synchronise their keys.
+
+```bash
+# publish key
+gpg --keyserver [Keyserver_URL] --send-keys [Key_ID]
+
+# search key
+gpg --keyserver pool.sks-keyservers.net --search-keys [Public_Key]
+
+# receive key
+gpg --keyserver pool.sks-keyservers.net --receive-keys [Public_Key]
+```
+
+REMEMBER, OpenPGP key servers do not allow removal of the key with the fact that key servers are operated by hundreds of individuals so if you would ask the
+individual operators to remove a key, they might block it on their own server, but others will still be hosting it. Revocation certificate is handy, you can create and publish it to key server.
+
+```bash
+# after creating revocation certificate, import the certificate
+gpg --import /path/to/johndoe_compromised.crt
+```
+
+Now your key pair is invalidated, if you have uploaded/pushed/sent your keys to key servers then send the public key again so people may know about this.
+
+```bash
+gpg --keyserver [Keyserver_URL] --send-keys [Key_ID]
+```
+
+If you have sent the key to your friend, or concerned person, previously using any other medium then you have to export and send it again, so concerned party might know that your key is comprised or no longer in use.
+
+Note: Other key server
+> pgp.mit.edu
+> keys.gnupg.net
+
+
 
 [1]: https://docs.github.com/en/free-pro-team@latest/github/authenticating-to-github/managing-commit-signature-verification
 [2]: ./git.md
