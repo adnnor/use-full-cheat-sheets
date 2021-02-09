@@ -11,7 +11,7 @@ This repository is the compilation of commonly used commands and tricks, just to
 [1]: ./gpg.md
 [2]: ./phpstorm.md
 [3]: ./composer.md
-[3]: ./magento-cloud.md
+[4]: ./magento-cloud.md
 
 
 
