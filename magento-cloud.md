@@ -1,13 +1,15 @@
 ## Magento Cloud
 
-##### Access the Web Panel
-https://accounts.magento.cloud/user
-https://www.magentocommerce.com/products/login
-
 ### Contents
+- [Access the Web Panel](#access-the-web-panel)
 - [Installation](#installation)
 - [Common Commands](#common-commands)
 - [Setup Project](#setup-project)
+- [Database](#database)
+
+### Access the Web Panel
+https://accounts.magento.cloud/user
+https://www.magentocommerce.com/products/login
 
 ### Installation
 ```bash
@@ -48,7 +50,8 @@ magento-cloud login
 ```
 
 ### Common Commands
-[top](#contents)
+[top](#contents)   
+
 Altough you can list all commands using `magento-cloud list` command, I am listing some of the common commands and their usages.
 ##### List projects
 ```bash
@@ -92,18 +95,66 @@ magento-cloud variable:delete [name]
 ```
 
 ### Setup Project
+[top](#contents)   
 
-git remote rm magento
-git remote add origin [new git url]
+To setup your cloud project on your localhost, login to Magento Cloud (magento-cloud login) 
 
-magento-cloud build
+```bash
+# to list available projects
+magento-cloud projects
+# or
+magento-cloud project:list
 
-== git checkout -b
-magento-cloud environment:branch <name> <parent-branch>
+# example output
+Your projects are: 
++---------------+-------------+------------------------------------------------+
+| ID            | Title       | URL                                            |
++---------------+-------------+------------------------------------------------+
+| xxx           | xxx         | xxx                                            |
++---------------+-------------+------------------------------------------------+
 
-== git checkout
-magento-cloud environment:checkout <environment-ID>
+Get a project by running: magento-cloud get [id]
+List a project's environments by running: magento-cloud environments -p [id]
+```
 
-db:dump Create a local dump of the remote database
-db:size Estimate the disk usage of a database
-db:sql (sql) Run SQL on the remote database
+Now clone your project, 
+
+```bash
+magento-cloud project:get <project-ID>
+# or
+magento-cloud get [id]
+```
+
+You can list available environments
+```bash
+magento-cloud environment:list
+# or 
+magento-cloud environments
+```
+> The magento-cloud environment:list command displays environment hierarchies, whereas the git branch command does not. [Source][1]
+
+Once the clone is completed, install all dependencies.
+
+```bash
+composer --no-ansi --no-interaction install --no-progress --prefer-dist --optimize-autoloader
+```
+
+### Database
+[top](#contents)
+
+Create the local dump of the remote database
+```bash
+db:dump
+```
+
+Estimate the disk usage of a database
+```bash
+db:size
+```
+
+Run SQL queries on the remote database
+```bash
+db:sql
+```
+
+[1]: https://devdocs.magento.com/cloud/before/before-setup-env-2_clone.html
