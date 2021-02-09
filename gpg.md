@@ -148,7 +148,7 @@ gpg: use option "--delete-secret-keys" to delete it first.
 gpg --delete-secret-key "johndoe@example.com"
 ```
 
-## Revocation Certificate
+### Revocation Certificate
 [top](#contents)
 
 What if 
@@ -182,7 +182,7 @@ To prevent unauthorized access immediately restrict the permissions on the gener
 chmod 600 /path/johndoe_compromised.crt
 ```
 
-## Publish key
+### Publish key
 [top](#contents)
 
 It is time to publish your public key to the key server, it doesn't matter which key server you use, they synchronise their keys.
@@ -218,11 +218,11 @@ Note: Other key server
 > pgp.mit.edu
 > keys.gnupg.net
 
-## Wiki
-sec => 'Secret key'
-ssb => 'Secret subkey'
-pub => 'public key'
-sub => 'public subkey'
+### Wiki
+sec => 'Secret key'   
+ssb => 'Secret subkey'   
+pub => 'public key'   
+sub => 'public subkey'   
 
 OpenPGP further supports subkeys, which are like the normal keys, except they're bound to a master key pair. A subkey can be used for signing or for encryption. The really useful part of subkeys is that they can be revoked independently of the master keys, and also stored separately from them.
 
