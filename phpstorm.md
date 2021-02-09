@@ -8,18 +8,13 @@ https://devdocs.magento.com/guides/v2.4/config-guide/cli/config-cli-subcommands-
 
 `bin/magento dev:urn-catalog:generate .idea/misc.xml` 
 
+##### Sign commits
+```bash
+git config --global commit.gpgsign true
+```
 
-
-1 - install GPG tools : https://gpgtools.org/
-
-2 - Create new key for your github email
-
-3 - Add key to git on your local machine: git config --global user.signingkey YOURKEY
-
-4 - configure git to sign all commits: git config --global commit.gpgsign true
-
-5 - add to the bottom of ~/.gnupg/gpg.conf: (create the file if it not exists)
-
+Create, if it not exists, or open ~/.gnupg/gpg.conf and add following lines at the end
+```bash
 no-tty
 use-agent
-6 - Add key to you're github profile settings: gpg --armor --export YOURKEY
+```
