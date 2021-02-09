@@ -8,7 +8,7 @@
 - [Database](#database)
 
 ### Access the Web Panel
-https://accounts.magento.cloud/user
+https://accounts.magento.cloud/user   
 https://www.magentocommerce.com/products/login
 
 ### Installation
@@ -43,9 +43,8 @@ When  the installation is finished
 ```bash
 source ~/.bashrc # (make sure your shell does this by default)
 ```
-#### Login
+When the installation is finished, it is time to login to Magento Cloud
 ```bash
-# when the installation is finished, login to Magento Cloud
 magento-cloud login
 ```
 
