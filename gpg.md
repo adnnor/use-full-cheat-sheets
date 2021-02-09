@@ -218,6 +218,72 @@ Note: Other key server
 > pgp.mit.edu
 > keys.gnupg.net
 
+## Wiki
+sec => 'Secret key'
+ssb => 'Secret subkey'
+pub => 'public key'
+sub => 'public subkey'
+
+OpenPGP further supports subkeys, which are like the normal keys, except they're bound to a master key pair. A subkey can be used for signing or for encryption. The really useful part of subkeys is that they can be revoked independently of the master keys, and also stored separately from them.
+
+In other words, subkeys are like a separate key pair, but automatically associated with your main key pair.
+
+...
+
+You should keep your private master key very, very safe
+
+...
+
+Subkeys make this easier: you already have an automatically created encryption subkey and you create another subkey for signing, and you keep those on your main computer. You publish the subkeys on the normal keyservers, and everyone else will use them instead of the master keys for encrypting messages or verifying your message signatures.
+
+...
+
+You will need to use the master keys only in exceptional circumstances, namely when you want to modify your own or someone else's key.
+
+PUBKEY_USAGE_SIG      S
+PUBKEY_USAGE_CERT     C
+PUBKEY_USAGE_ENC      E
+PUBKEY_USAGE_AUTH     A
+
+'--list-options parameters'
+
+show-usage
+
+      Show usage information for keys and subkeys in the standard
+      key listing.  This is a list of letters indicating the allowed
+      usage for a key ('E'=encryption, 'S'=signing,
+      'C'=certification, 'A'=authentication).  Defaults to no.
+
+So, doing gpg -k --list-options show-usage 1A3ABKEY will show you something like this:
+
+pub   rsa4096/1A3ABKEY 2015-01-25 [SC]
+uid         [ultimate] Some Key
+sub   rsa4096/4B907KEY 2015-09-19 [S]
+sub   rsa4096/F9A41KET 2015-09-19 [E]
+
+The OpenPGP (v4) key ID is an identifier calculated from the public key and key creation timestamp. From those, a hashsum is calculated. The hex-encoded version is called the fingerprint of the key. The last (lower order) 16 characters are called the long key ID, if you only take the last eight characters, it's the short key ID. An example for my own public key:
+
+fingerprint: 0D69 E11F 12BD BA07 7B37  26AB 4E1F 799A A4FF 2279
+long id:                                    4E1F 799A A4FF 2279
+short id:                                             A4FF 2279
+
+The (long) key id is represented by the lowest 64 bits, and is used as the full fingerprint is an unhandy and long value. Even more often, the short key id formed by the lowest-order 32 bits is used. These short key IDs are often considered to have a too high chance of collisions and usage of at least the long ID, if not even full fingerprint is recommended.
+
+The Key ID of the Primary public key (‘366150CE’ in this case) is used to refer to some of its own subkeys, such as the associated private signing key, as well as the encryption subkey.
+
+The fingerprint/key id is a hash of the entire key packet, and only the key packet. It is invalidated (changed) if any information in the key packet is changed, but is unaffected by any changes in any other packets.
+
+n RFC2822 format (“David Steele <dsteele@gmail.com>”)
+
+Flag	gpg character	Description
+0x01	“C”	Key Certification
+0x02	“S”	Sign Data
+0x04	“E”	Encrypt Communications
+0x08	“E”	Encrypt Storage
+0x10	 	Split key
+0x20	“A”	Authentication
+0x80	 	Held by more than one person
+
 
 
 [1]: https://docs.github.com/en/free-pro-team@latest/github/authenticating-to-github/managing-commit-signature-verification
