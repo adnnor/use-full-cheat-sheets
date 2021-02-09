@@ -4,10 +4,14 @@
 https://accounts.magento.cloud/user
 https://www.magentocommerce.com/products/login
 
-### Install magento-cloud CLI
+### Contents
+- [Installation](#installation)
+- [Common Commands](#common-commands)
+- [Setup Project](#setup-project)
+
+### Installation
 ```bash
 curl -sS https://accounts.magento.cloud/cli/installer | php
-source $HOME/.bashrc
 ```
 You will get similar response
 
@@ -33,18 +37,18 @@ Checking file integrity... done
 Checking that the file is a valid Phar... done
 [...]
 ```
-
+When  the installation is finished
+```bash
+source ~/.bashrc # (make sure your shell does this by default)
+```
 #### Login
 ```bash
-# when the installation is finished
-# to check available commands
-magento-cloud list
-
-# login to Magento Cloud
+# when the installation is finished, login to Magento Cloud
 magento-cloud login
 ```
 
 ### Common Commands
+[top](#contents)
 Altough you can list all commands using `magento-cloud list` command, I am listing some of the common commands and their usages.
 ##### List projects
 ```bash
@@ -86,6 +90,8 @@ magento-cloud variable:update [name]
 # delete variable
 magento-cloud variable:delete [name]
 ```
+
+### Setup Project
 
 git remote rm magento
 git remote add origin [new git url]
