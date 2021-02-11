@@ -14,7 +14,7 @@ This repository is the compilation of commonly used commands and tricks, just to
 [4]: ./magento-cloud.md
 [5]: ./git.md
 [6]: ./mysql.md
-[7]: ./linux.md
+[7]: ./linux/linux.md
 
 
 
