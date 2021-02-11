@@ -10,39 +10,42 @@ Don't mix with `cat`
 **Create empty file**
 
 ```bash
-touch file.ext
+touch [file]
 
 # or to create multiple empty files
-touch file1.ext file2.ext
+touch [file] [file]
 
 # with custom date and time
-touch -t YYMMDDHHMM file.ext
+touch -t [date] [file]
 # e.g.
-touch -t 200104171712 file.ext
+touch -t 200104171712 file.txt
 # or
-touch -t "17 Apr 2001" file.ext
+touch -t "17 Apr 2001" file.txt
 ```
 
 **Change access time of a file**
 ```bash
-touch -a file.ext
+touch -a [file]
 ```
 
 **Change modification time of a file**
 ```bash
-touch -m file.ext
+touch -m [file]
 ```
 
 **Change access and modification time of a file**
 ```bash
-touch -c-d file.ext
+touch -c -d [file]
 ```
 
 **Change the access and modification time of a file to given date and time**
 
 ```bash
-touch -c -d "16 Aug 2001" ad.txt
-touch -c -d 20010916 ad.txt
+touch -c -d [date] [file]
+# e.g.
+touch -c -d "16 Sep 2001" file.txt
+# or
+touch -c -d 20010916 file.txt
 ```
 
 **Check file, if it is created or not**
@@ -50,7 +53,7 @@ touch -c -d 20010916 ad.txt
 The following command will check whether the file is created or not, if not then do not create, if it is created then it will change the access and modified time of an already created file.
 
 ```bash
-touch -c file.ext
+touch -c [file]
 ```
 
 **Copy access and modify time from another file**
