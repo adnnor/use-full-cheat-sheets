@@ -1,0 +1,44 @@
+## MySQL
+MySQL is an open-source relational database management system. Its name is a combination of "My", the name of co-founder Michael Widenius's daughter, and "SQL", the abbreviation for Structured Query Language. [Source][3]
+
+### Export Database
+You can export database using your favorite MySQL visual tool such as [DBeaver][1] or [MySQL Workbench][2]. If you are not using or don't have any then you can use native linux terminal.
+
+**Export single database**
+```bash
+mysqldump -u [username] -p [database] > [file]
+# e.g.
+mysqldump -u root -p sample > sample.gz
+```
+
+**Export single gzipped-compressed database**
+```bash
+mysqldump -u [username] -p [database] | gzip > [file]
+# e.g.
+mysqldump -u root -p sample | gzip > sample.gz
+
+# remove the definer 
+mysqldump -u [username] -p [database] | sed -e 's/DEFINER[ ]*=[ ]*[^*]*\*/\*/' > [file]
+```
+
+**Export a table from the database**
+```bash
+# gzipped-compressed
+mysqldump -u [username] -p [database] [table] | gzip > [file]
+# or uncompressed
+mysqldump -u [username] -p [database] [table] > [file]
+```
+
+### Import Database
+There are multiple ways to import database.
+
+**Import gzipped database**
+```bash
+zcat [path] | mysql -u [username] -p [database]
+# e.g.
+zcat /path/to/sample.gz | mysql -u root -p sample
+```
+
+[1]: https://dbeaver.io/
+[2]: https://www.mysql.com/products/workbench/
+[3]: https://en.wikipedia.org/wiki/MySQL
