@@ -23,10 +23,9 @@ Headers make sense what is represented in output but let me define two confusing
 **buff/cache** The combined memory used by the kernel buffers and page cache and slabs. This memory can be reclaimed at any time if needed by the applications. If you want buffers and cache to be displayed in two separate columns, use the -w option.
 
 ### Available Options
--b,-k,-m,-g show output in bytes, KB, MB, or GB
--l show detailed low and high memory statistics
--o use an old format (no -/+buffers/cache line)
--t display total for RAM + swap
--s update every [delay] seconds
--c update [count] times
-```
+-b,-k,-m,-g show output in bytes, KB, MB, or GB  
+-l show detailed low and high memory statistics  
+-o use an old format (no -/+buffers/cache line)  
+-t display total for RAM + swap  
+-s update every [delay] seconds  
+-c update [count] times  
