@@ -16,6 +16,8 @@ ss -tulw
 
 ### More Compilation
 * [free][1]
+* [gpg][1]
 
 
 [1]: ./free.md
+[2]: ./gpg.md.md

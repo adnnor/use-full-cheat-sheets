@@ -1,8 +1,9 @@
 ## free Command
 
-How much free RAM memory do I have available on my Linux system? Is there enough free memory to install and run new applications?
-In Linux systems, you can use the free command to get a detailed report on the system’s memory usage.
 The free command provides information about the total amount of the physical and swap memory, as well as the free and used memory.
+
+In Linux systems, you can use the free command to get a detailed report on the system’s memory usage.
+
 
 ```bash
 # default (without options), it will display memory and swap in KBs
