@@ -33,11 +33,6 @@ touch -a [file]
 touch -m [file]
 ```
 
-**Change access and modification time of a file**
-```bash
-touch -c -d [file]
-```
-
 **Change the access and modification time of a file to given date and time**
 
 ```bash
