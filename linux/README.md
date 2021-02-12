@@ -1,9 +1,9 @@
 ## Linux
 It contains all useful linux commands, more compilations could be found [here](#more-compilation)
 
-###List open ports
+### List open ports
 
-**Run any one of the following command on Linux to see open ports**  
+Run any one of the following command on Linux to see open ports  
 ```bash
 sudo lsof -i -P -n | grep LISTEN
 sudo netstat -tulpn | grep LISTEN
@@ -14,10 +14,11 @@ sudo nmap -sTU -O IP-address-Here
 ss -tulw
 ```
 
-**Create a symbolic (shortcut) link**  
+### Create a symbolic (shortcut) link
+
 A symbolic link, symlink or soft link, is a special type of file that points to another file or directory.
 
-Without using `-s` or `--symbolic` with `ln` will create hard link
+Without using `-s` or `--symbolic` option, `ln` will create hard link.
 ```bash
 ln -s [source] [destination]
 # or
