@@ -18,8 +18,10 @@ ss -tulw
 * [free][1]
 * [gpg][2]
 * [touch][3]
+* [find][4]
 
 
 [1]: ./free.md
 [2]: ./gpg.md
 [3]: ./touch.cmd.md
+[4]: ./find.md
