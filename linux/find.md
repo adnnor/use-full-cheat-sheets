@@ -1,6 +1,6 @@
 ## find Command
 
-This command is used to search and locate the list of files and directories based on conditions you specify for files that match the arguments.
+> This command is used to search and locate the list of files and directories based on conditions you specify for files that match the arguments.
 
 **Find [file] in [path]**
 ```bash

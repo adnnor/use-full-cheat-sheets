@@ -1,8 +1,7 @@
 ## free Command
 
-The free command provides information about the total amount of the physical and swap memory, as well as the free and used memory.
-
-In Linux systems, you can use the free command to get a detailed report on the system’s memory usage.
+> The free command provides information about the total amount of the physical and swap memory, as well as the free and used memory.  
+> In Linux systems, you can use the free command to get a detailed report on the system’s memory usage.
 
 
 ```bash
