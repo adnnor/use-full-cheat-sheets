@@ -30,7 +30,7 @@ mysqldump -u [username] -p [database] [table] > [file]
 ```
 
 ### Import Database
-There are multiple ways to import database.
+You can import your database in multiple ways, it also depends on what kind of format do you.   
 
 **Import gzipped database**
 ```bash
@@ -46,7 +46,8 @@ mysql -u [username] -p [database name] < [.sql path]
 mysql -u root -p sample < ~/Downloads/sample.sql
 ```
 
-**Import using MySQL source command**
+**Import using MySQL source command**   
+
 Open MySQL cli
 ```bash
 mysql -u [username] -p
