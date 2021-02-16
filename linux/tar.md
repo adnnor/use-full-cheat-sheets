@@ -16,6 +16,12 @@ tar -cf dump.tar /home/ad/Desktop/dump.sql
 tar -cf dump.tar "/home/ad/Desktop/dump.sql" "/home/ad/Desktop/dump2.sql"
 ```
 
+You can ignore certain files or directories being included.
+
+```bash
+tar -cf downloads.tar /home/ad/Downloads/ --exclude='*.zip' --exclude='*.tar'
+```
+
 **Add a file or directory to existing tarball**  
 Following command will help you to add a file or directory to existing tar archive, remember, you cannot append a compressed archive such as bz2 or bz.
 ```bash
@@ -36,6 +42,8 @@ tar -xf [archive path]
 # in specified directory
 tar -xf [archive path] -C [path to extract]
 ```
+
+You can use exclude directive here, so the certain files or directories shouldn't be extracted or uncompressed.
 
 **Untar/uncompress a single or multiple files**
 ```bash
