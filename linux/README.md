@@ -126,6 +126,7 @@ bin:*:xxxx:0:xxxx:x:::
 * [find][4] - Search and locate the list of files and directories.
 * [tar][5] - Rip a collection of files and directories into highly compressed archives.
 * [scp][6] - Copy file(s) between servers in secure way.
+* [mkdir][7] - Create director(y/ies).
 
 
 [1]: ./free.md
@@ -134,3 +135,4 @@ bin:*:xxxx:0:xxxx:x:::
 [4]: ./find.md
 [5]: ./tar.md
 [6]: ./scp.md
+[7]: ./mkdir.md
