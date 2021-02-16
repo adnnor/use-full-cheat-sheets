@@ -39,6 +39,43 @@ zcat [path] | mysql -u [username] -p [database]
 zcat /path/to/sample.gz | mysql -u root -p sample
 ```
 
+**Import .sql database**
+```bash
+mysql -u [username] -p [database name] < [.sql path]
+# e.g.
+mysql -u root -p sample < ~/Downloads/sample.sql
+```
+
+**Import using MySQL source command**
+Open MySQL cli
+```bash
+mysql -u [username] -p
+```
+When logged in, create the database if not exists;
+```bash
+CREATE DATABASE IF NOT EXISTS sample;
+```
+Then, switch to desired or newly created database;
+```bash
+USE sample;
+```
+Finally, import the database;
+```bash
+SOURCE [.sql path]
+# e.g.
+SOURCE /home/ad/Desktop/sample.sql;
+```
+
+
+
+
+
+### Tricks
+**Run MySQL query on terminal**
+```bash
+mysql -u root -p -e "CREATE DATABASE database-name;"
+```
+
 [1]: https://dbeaver.io/
 [2]: https://www.mysql.com/products/workbench/
 [3]: https://en.wikipedia.org/wiki/MySQL
