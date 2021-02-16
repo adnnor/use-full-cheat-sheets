@@ -29,14 +29,31 @@ ln -sf [source] [destination]
 ln --symbolic --force [source] [destination]
 ```
 
+### Switch the PHP version of terminal
+```bash
+# interactive
+sudo update-alternatives --config php
+sudo update-alternatives --config phar
+sudo update-alternatives --config phar.phar
+
+# manual
+sudo update-alternatives --set php /usr/bin/php7.4
+sudo update-alternatives --set phar /usr/bin/phar7.4
+sudo update-alternatives --set phar.phar /usr/bin/phar.phar7.4
+```
+
 ### More Compilation
-* [free][1]
-* [gpg][2]
-* [touch][3]
-* [find][4]
+* [free][1] - Provides information about memory.
+* [gpg][2] - Allows you to encrypt and sign your data and communications.
+* [touch][3] - Create, change and modify timestamps of a file.
+* [find][4] - Search and locate the list of files and directories.
+* [tar][5] - Rip a collection of files and directories into highly compressed archives.
+* [scp][6] - Copy file(s) between servers in secure way.
 
 
 [1]: ./free.md
 [2]: ./gpg.md
 [3]: ./touch.cmd.md
 [4]: ./find.md
+[5]: ./tar.md
+[6]: ./scp.md
