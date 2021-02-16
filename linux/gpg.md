@@ -288,5 +288,5 @@ Flag	gpg character	Description
 
 
 [1]: https://docs.github.com/en/free-pro-team@latest/github/authenticating-to-github/managing-commit-signature-verification
-[2]: ../git.md
+[2]: ../git/git.md
 [3]: https://gnupg.org/
