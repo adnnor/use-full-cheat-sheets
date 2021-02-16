@@ -1,6 +1,7 @@
-## Git
+## Common Git Commands
 
-[Back][1]
+[Back][1] to main Git doc.
+
 
 Initialize empty repository  
 ```bash
