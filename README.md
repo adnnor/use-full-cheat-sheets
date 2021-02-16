@@ -12,7 +12,7 @@ This repository is the compilation of commonly used commands and tricks, just to
 [2]: ./phpstorm.md
 [3]: ./composer.md
 [4]: ./magento-cloud.md
-[5]: ./git.md
+[5]: git/README.md
 [6]: ./mysql.md
 [7]: linux/README.md
 
