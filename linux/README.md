@@ -9,6 +9,7 @@ It contains all useful linux commands, more compilations could be found [here](#
 - [Add user to group](#add-user-to-group)
 - [Delete user](#delete-user)
 - [List groups, users and active users](#list-groups-users-and-active-users)
+- [Display system information](#display-system-information)
 
 ### List open ports
 
@@ -119,6 +120,36 @@ bin:*:xxxx:0:xxxx:x:::
 
 `w` or `who` command is used to check all active/logged users on the machine.
 
+### Display system information
+
+```bash
+
+# model number
+sudo dmidecode | grep Version | sed -n '2p'
+
+# or SKU
+sudo dmidecode | grep 'SKU Number' | head -1
+
+# system information
+sudo dmidecode | grep -A 9 "System Information"
+
+# or
+sudo dmidecode | less
+```
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 ### More Compilation
 * [free][1] - Provides information about memory.
 * [gpg][2] - Allows you to encrypt and sign your data and communications.
@@ -127,6 +158,7 @@ bin:*:xxxx:0:xxxx:x:::
 * [tar][5] - Rip a collection of files and directories into highly compressed archives.
 * [scp][6] - Copy file(s) between servers in secure way.
 * [mkdir][7] - Create director(y/ies).
+* [ssh][8] - Cryptographic network protocol for operating network services.
 
 
 [1]: ./free.md
@@ -136,3 +168,4 @@ bin:*:xxxx:0:xxxx:x:::
 [5]: ./tar.md
 [6]: ./scp.md
 [7]: ./mkdir.md
+[8]: ./ssh.md
