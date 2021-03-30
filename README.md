@@ -2,7 +2,7 @@
 
 This repository is the compilation of commonly used commands and tricks, just to keep common things under single roof. For further details and code reference, navigate to relevant docs.
 
-* [Git][5] (distributed version-control system)
+* [Git][5]
 * [MySQL][6]
 * [Linux][7]
 * [PhpStorm Tips & Tricks][2]
